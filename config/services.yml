@@ -1,1 +1,5 @@
-
+services:
+  myweeklyreport.command.generate_report:
+    class: MyWeeklyReport\Command\MyWeeklyReportCommand
+    tags:
+      - { name: 'console.command' }
