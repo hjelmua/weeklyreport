@@ -1,2 +1,2 @@
 # weeklyreport
-Prestashop Module for Weekly product report
+Prestashop Module for Weekly product report in Prestashop using bin/console
