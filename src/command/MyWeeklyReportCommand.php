@@ -1,6 +1,6 @@
 <?php
 
-namespace MyWeeklyReport\Command;
+namespace WeeklyReport\Command;
 
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputArgument;
@@ -10,12 +10,12 @@ use PrestaShop\PrestaShop\Adapter\SymfonyContainer;
 use PrestaShop\PrestaShop\Adapter\LegacyContext;
 use Db;
 
-class MyWeeklyReportCommand extends Command
+class WeeklyReportCommand extends Command
 {
     protected function configure()
     {
         $this
-            ->setName('myweeklyreport:generate')
+            ->setName('weeklyreport:generate')
             ->setDescription('Generate weekly report for specified products')
             ->addArgument('references', InputArgument::IS_ARRAY, 'Product references to include in the report');
     }
@@ -84,7 +84,7 @@ class MyWeeklyReportCommand extends Command
         $smarty = SymfonyContainer::getInstance()->get('prestashop.adapter.legacy.context')->getContext()->smarty;
         $smarty->assign('products', $products);
 
-        $content = $smarty->fetch(_PS_MODULE_DIR_ . 'myweeklyreport/views/templates/report.tpl');
+        $content = $smarty->fetch(_PS_MODULE_DIR_ . 'weeklyreport/views/templates/report.tpl');
 
         $filename = 'weekly_report_' . date('Y-m-d') . '.html';
         file_put_contents(_PS_ROOT_DIR_ . '/var/logs/' . $filename, $content);
