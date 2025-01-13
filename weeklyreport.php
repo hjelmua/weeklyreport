@@ -4,7 +4,7 @@ if (!defined('_PS_VERSION_')) {
     exit;
 }
 
-class MyWeeklyReport extends Module
+class WeeklyReport extends Module
 {
     public function __construct()
     {
@@ -67,7 +67,7 @@ class MyWeeklyReport extends Module
             }
 
             // Register the command service
-            if (!$container->has('myweeklyreport.command.generate_report')) {
+            if (!$container->has('weeklyreport.command.generate_report')) {
                 return;
             }
 
@@ -77,7 +77,7 @@ class MyWeeklyReport extends Module
 
         } catch (\Exception $e) {
             PrestaShopLogger::addLog(
-                'MyWeeklyReport: Error registering commands - ' . $e->getMessage(),
+                'WeeklyReport: Error registering commands - ' . $e->getMessage(),
                 3 // Error severity
             );
             return false;
