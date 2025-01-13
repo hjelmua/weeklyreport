@@ -8,7 +8,7 @@ class WeeklyReport extends Module
 {
     public function __construct()
     {
-        $this->name = weeklyreport';
+        $this->name = 'weeklyreport';
         $this->tab = 'administration';
         $this->version = '1.0.0';
         $this->author = 'Jonas Hjelm';
